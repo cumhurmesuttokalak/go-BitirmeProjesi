@@ -16,6 +16,6 @@ var Database DbInstance
 func DatabaseConnection() {
 	db, err := gorm.Open(sqlite.Open("bitirmeprojesidb"), &gorm.Config{})
 	helpers.CheckErr(err)
-	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.User{}, &models.Book{})
 	Database = DbInstance{Db: db}
 }
